@@ -1,0 +1,23 @@
+﻿@using HotelOtomation.Domain.Entities
+@model IEnumerable<City>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<title>Home</title>
+@if(User.IsInRole("Admin"))
+{
+    <partial name="_HomeAdminPartialView" model="Model" />
+}
+else
+{
+    <partial name="_HomeCardPartialView" model="Model" />
+}
+
+
+
+  
+    
+        
+
+

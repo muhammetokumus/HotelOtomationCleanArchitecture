@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/src/img/hotel-favicon.png">
+     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap-extended.min.css">
+<link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css">
+<link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/colors.min.css">
+<link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+</head>
+
+<body class="" style="padding-bottom: 60px;">
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container">
+
+            @if (User.Identity.IsAuthenticated == true)
+            {
+                if (User.IsInRole("Admin"))
+                {
+                    <a class="navbar-brand" asp-action="Index" asp-controller="Home">Admin Panel</a>
+                    <a asp-action="Index" asp-controller="Role"><button class="btn navbar-brand" type="submit">Role</button></a>
+                            <a asp-action="Index" asp-controller="User"><button class="btn navbar-brand" type="submit">User</button></a>
+                            <a asp-action="Index" asp-controller="Hotel"><button class="btn navbar-brand" type="submit">Hotel</button></a>
+                    <div class="d-flex me-2">
+                                <a asp-action="Index" asp-controller="Home" class="btn btn-primary me-2 dropdown">@User.Identity.Name </a>
+                                <a asp-action="Logout" asp-controller="Account"><button class="btn btn-primary me-2 dropdown">Logout</button></a>
+                    </div>
+                }
+                else
+                {
+                    <a class="navbar-brand" asp-action="Index" asp-controller="Home">Hotel Otomation</a>
+                            <a asp-action="Hotels" asp-controller="Home"><button class="btn navbar-brand" type="submit">Hotels</button></a>
+                    <div class="d-flex me-2">
+                                <a asp-action="Index" asp-controller="Home" class="btn btn-primary me-2 dropdown">@User.Identity.Name </a>
+                                <a asp-action="Logout" asp-controller="Account"><button class="btn btn-primary me-2 dropdown">Logout</button></a>
+                    </div>
+                }
+
+            }
+            else
+            {
+                <a class="navbar-brand" asp-action="Index" asp-controller="Home">Hotel Otomation</a>
+                <a asp-action="Hotels" asp-controller="Home"><button class="btn navbar-brand" type="submit">Hotels</button></a>
+                <div class="float-end">
+                    <a asp-action="Login" asp-controller="Account"><button class="btn btn-primary me-2 dropdown">Login</button></a>
+                    <a asp-action="SignUp" asp-controller="Account"><button class="btn btn-primary me-2 dropdown">Sign Up</button></a>
+                </div>
+            }
+        </div>
+    </nav>
+    <main class="container">
+        @RenderBody()
+    </main>
+    <footer class="text-center fixed-bottom">
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2022 Copyright:
+            <a href="index">Hotel Otomation</a>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+﻿@using HotelOtomation.Domain.Entities
+@model AppRole
+@{
+    ViewData["Title"] = "Add";
+}
+
+<title>Add Role</title>
+<form method="post" class="w-25 card container my-5">
+    <h4 class="p-3">Add Role</h4>
+    <hr />
+    <div class="form-group p-3">
+        <label>Role Name:</label>
+        <input type="text" asp-for="Name" class="form-control float-end"/>
+    </div>
+    <hr />
+    <button type="submit" class="btn btn-primary float-end m-3">Add Role</button>
+</form>
+

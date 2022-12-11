@@ -1,0 +1,100 @@
+﻿<style>
+    body {
+    font-family: Varela Round;
+    background: #f1f1f1;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Card Styles */
+
+.card-sl {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card-image img {
+    max-height: 206.56px;
+    max-width: 306px;
+    border-radius: 8px 8px 0px 0;
+}
+
+.card-action {
+    position: relative;
+    float: right;
+    margin-top: -25px;
+    margin-right: 20px;
+    z-index: 2;
+    color: #E26D5C;
+    background: #fff;
+    border-radius: 100%;
+    padding: 15px;
+    font-size: 15px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.19);
+}
+
+    .card-action:hover {
+        color: #fff;
+        background: #E26D5C;
+        -webkit-animation: pulse 1.5s infinite;
+    }
+
+.card-heading {
+    font-size: 14px;
+    font-weight: bold;
+    background: #fff;
+    padding: 10px 15px;
+}
+
+.card-text {
+    padding: 10px 15px;
+    background: #fff;
+    font-size: 14px;
+    color: #636262;
+}
+
+.card-button {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    width: 100%;
+    background-color: #00CED2;
+    color: #fff;
+    border-radius: 0 0 8px 8px;
+}
+
+    .card-button:hover {
+        text-decoration: none;
+        background-color: #00CED2 ;
+        color: #fff;
+    }
+
+</style>
+<div class="row ">
+     @foreach (var item in Model)
+     {
+        <div class="col-md-3 mt-2 mb-2">
+            <div class="card-sl">
+                <div class="card-image">
+                    <img 
+                    src="@item.ImageUrl" />
+                </div>
+
+                <a class="card-action" href="#"><i class="fa fa-heart"></i></a>
+                <div class="card-heading">
+                        @item.Name
+                </div>
+                <div class="card-text">
+                        @item.City.Name / Türkiye
+                </div>
+                <div class="card-text">
+                    ₺ @item.DailyPrice
+                </div>
+                <a asp-action="Detail" asp-route-id="@item.Id" class="card-button">Details</a>
+            </div>
+        </div>
+     }
+</div>
+       

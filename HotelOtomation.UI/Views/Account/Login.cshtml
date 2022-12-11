@@ -1,0 +1,87 @@
+﻿@model LoginViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap-extended.min.css">
+<link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css">
+<link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/colors.min.css">
+<link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <link rel="icon" href="/src/img/hotel-favicon.png">
+    <style>
+        .bg-image {
+            background-image: url("https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8aG90ZWxzfGVufDB8fDB8fA%3D%3D&w=1000&q=80");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+    <title>Log In</title>
+</head>
+
+<body class="bg-black bg-opacity-10">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 bg-image vh-100 mb-5 mb-md-0"></div>
+            <div class="col-md-6 d-flex justify-content-center align-items-center">
+                <div class="w-75">
+                    <div>
+                        <form method="post">
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-floating mb-2">
+                                <input asp-for="UserName" type="text" class="form-control">
+                                <label asp-for="UserName" for="text"><i class="bi bi-person-circle">Username</i></label>
+                                <span asp-validation-for="UserName" class="text-danger"></span>
+                            </div>
+                            <div class="form-floating mb-2">
+                                <input asp-for="Password" type="password" class="form-control" id="Pass">
+                                <label asp-for="Password" for="pass"><i class="bi bi-key-fill">Password</i></label>
+                                <div class="form-check float-end">
+                                    <i type="checkbox" name="accept" onClick="checkShow()" class="bi bi-eye"></i>
+                                </div>
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+                                <a href="/" class="float-start link-dark">Forget Password</a>
+                            <div class="clearfix mb-5"></div>
+                            <div class="d-grid gap-3 mb-5">
+                                <input type="submit" class="btn btn-primary py-3" value="Log In">
+                                <a type="button" href="/account/signup" class="btn btn-primary py-3">Sign Up</a>
+                            </div>
+                        </form>
+                        <div class="float-end">
+                            <a class="text-dark" asp-action="Index" asp-controller="Home">Home <i class="bi bi-arrow-return-left"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+                crossorigin="anonymous"></script>
+            <script>
+                function checkShow() {
+                var x = document.getElementById("Pass");
+                 if (x.type === "password") {
+                 x.type = "text";
+                    } else {
+                x.type = "password";
+                }
+            }
+            </script>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+﻿@model List<RoleAssignViewModel>
+@{
+    ViewData["Title"] = "RoleAssign";
+}
+
+<title>Update Role</title>
+    <form asp-action="RoleAssign" asp-controller="User" class="w-50 card container my-5">
+        <h4 class="p-3 float-start">@ViewBag.Username </h4>
+        <hr />
+        <div class="form-group p-3">
+        @for (var i = 0; i < Model.Count; i++)
+        {
+                <input type="checkbox" asp-for="@Model[i].HasAssign" class="from-control float-end"/>
+            @Model[i].Name
+                <input type="hidden" asp-for="@Model[i].Id" class="from-control"/>
+                <input type="hidden" asp-for="@Model[i].Name" class="from-control"/>
+                <br />
+                <hr />
+        }
+        </div>
+        <button class="btn btn-primary mb-2">Update Role</button>
+    </form>
+

@@ -1,0 +1,56 @@
+﻿@using HotelOtomation.Domain.Entities
+@model IEnumerable<AppRole>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<section class="intro mt-2">
+  <div class="bg-image h-100">
+    <div class="mask d-flex align-items-center h-100">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <div class="card shadow-2-strong" style="background-color: #f5f7fa;">
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-borderless mb-0">
+                      <a class="btn btn-primary mb-1" asp-action="Add">Add New</a>
+                    <thead>
+                      <tr class="border-3 text-center">
+                        <th class="col-md-1 border" scope="col">Id</th>
+                        <th class="col-md-4 border text-center " scope="col">Name</th>
+                        
+                        <th class="col-md-1 border" scope="col">Edit</th>
+                        <th class="col-md-1 border" scope="col">Delete</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var data in Model)
+                        {
+                          <tr class="border-3 text-center">
+                            <th class="border" scope="row">@data.Id</th>
+                            <td class="border">@data.Name</td>
+                            <td class="border"><a asp-action="Add" asp-route-id="@data.Id" class="btn btn-primary btn-sm px-3">
+                                <i class="bi bi-pen"></i>
+                              </a></td>
+                            <td class="border">
+                              <a asp-action="Delete" asp-route-id="@data.Id" class="btn btn-danger btn-sm px-3">
+                                <i class="fas fa-times"></i>
+                              </a>
+                            </td>
+                          </tr>
+                        }
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+

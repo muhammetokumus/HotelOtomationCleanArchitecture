@@ -1,0 +1,56 @@
+﻿@model HotelViewModel
+@{
+    ViewData["Title"] = "Add";
+}
+    <title>Update Hotel</title>
+<div class="row">
+    <div class="col-md-2 my-5">
+    </div>
+    <form method="post" class="col-md-8 card container my-5">
+    <h4 class="p-3">Update Hotel</h4>
+    <hr />
+    <div class="form-group p-3">
+        <label>Id:</label>
+        <input type="text" asp-for="Hotel.Id" name="id" class="form-control float-end" disabled/>
+    </div>
+    <hr />
+    <div class="form-group p-3">
+        <label>Name:</label>
+        <input type="text" asp-for="Hotel.Name" class="form-control float-end"/>
+    </div>
+    <hr /> 
+    <div class="form-group p-3">
+        <label>City:</label>
+            <select asp-for="Hotel.CityId" class="form-control" onfocus='this.size=5;' onblur='this.size=1;' onchange='this.size=1; this.blur();'>
+                @foreach (var item in Model.Cities)
+                {
+                    <option label="@item.Name">@item.Id</option>
+                }
+        </select>
+    </div>
+    <hr />
+    <div class="form-group p-3">
+        <label>Description:</label>
+         <textarea type="text" asp-for="Hotel.Description" class="form-control float-end" rows="10" cols="50"></textarea>
+    </div>
+    <hr />
+    <div class="form-group p-3">
+        <label>Image URL:</label>
+        <input type="text" asp-for="Hotel.ImageUrl" class="form-control float-end"/>
+    </div>
+    <hr />
+    <div class="form-group p-3">
+        <label>WebSite:</label>
+        <input type="text" asp-for="Hotel.WebSiteUrl" class="form-control float-end"/>
+    </div>
+    <hr />
+    <div class="form-group p-3">
+        <label>Daily Price:</label>
+        <input type="text" asp-for="Hotel.DailyPrice" class="form-control float-end"/>
+    </div>
+    <hr />
+
+    <button type="submit" class="btn btn-primary float-end m-3">Update Hotel</button>
+</form>
+<div class="col-md-2"></div>
+</div>

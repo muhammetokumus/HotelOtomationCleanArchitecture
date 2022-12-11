@@ -1,0 +1,42 @@
+﻿@using HotelOtomation.Domain.Entities
+@model Hotel
+@{
+    ViewData["Title"] = "Detail";
+}
+<title>@Model.Name Detail</title>
+<div class="container border-2 border-dark rounded-2 p-3 bg-white  border">
+
+    <div class="row">
+        <div class="col-md-2">
+            <img src="@Model.ImageUrl" alt="" class="img-fluid rounded-3 w-100">
+            <div class="row float-end" style="color:#00CED2">
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <h1>@Model.Name</h1>
+            <span class="badge text-secondary">#0342216</span>
+            <div class="mt-1">
+                <p class="lead">
+                    @Model.Description
+                </p>
+            </div>
+            <div class="float-end">
+                <a href="@Model.WebSiteUrl" class="btn" style="color:#00CED2">
+                    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                    Go Website
+                </a>
+            </div>
+            <div class="mb-1 float-end">
+                <span class="badge fs-4 fw-bold rounded">₺@Model.DailyPrice</span>
+            </div>
+        </div>
+    </div>
+</div>
+

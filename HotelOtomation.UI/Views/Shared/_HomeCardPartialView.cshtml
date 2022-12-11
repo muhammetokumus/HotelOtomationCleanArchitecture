@@ -1,0 +1,24 @@
+﻿<link rel="stylesheet" href="./css/HomeCard.css">
+    <div class="row">
+    @foreach (var item in Model)
+    {
+    <form method="post" asp-action="Hotels" class="col-md-2 me-4 ms-2">
+        <button type="submit" class="border-0">
+            <div class="m-3">
+            <div class="property-card">
+                <div class="property-image">
+                <div class="property-image-title">
+                    <h5 class="float-end text-light">@item.Name</h5>
+                </div>
+                </div>
+            <div class="property-description">
+                <h6 class="fw-bold">@item.Name Hotels</h6>
+                <p>Here are the hotels where you will gain a unique experience!</p>
+            </div>
+            </div>
+            </div>  
+            <input name="city" hidden value="@item.Name"/>
+        </button>
+    </form>
+    }
+    </div>
